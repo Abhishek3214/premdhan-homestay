@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8E2D2"/>
+      <stop offset="50%" stop-color="#F4EFE6"/>
+      <stop offset="100%" stop-color="#EDE6D6"/>
+    </linearGradient>
+    <linearGradient id="roofGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C27847"/>
+      <stop offset="100%" stop-color="#9E5B30"/>
+    </linearGradient>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F0"/>
+      <stop offset="100%" stop-color="#EBE5D8"/>
+    </linearGradient>
+    <linearGradient id="grassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D5A46"/>
+      <stop offset="100%" stop-color="#1E3A2F"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#14211A" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1920" height="1080" fill="url(#skyGrad)"/>
+
+  <!-- Sun -->
+  <circle cx="1520" cy="240" r="110" fill="#E6A868" opacity="0.45"/>
+
+  <!-- Distant trees / greenery -->
+  <ellipse cx="320" cy="740" rx="260" ry="140" fill="#8EA38C" opacity="0.6"/>
+  <ellipse cx="640" cy="720" rx="300" ry="160" fill="#6E8A6B" opacity="0.7"/>
+  <ellipse cx="1480" cy="730" rx="360" ry="180" fill="#6E8A6B" opacity="0.7"/>
+  <ellipse cx="1720" cy="750" rx="280" ry="150" fill="#8EA38C" opacity="0.6"/>
+
+  <!-- Main Ground / Lawn -->
+  <path d="M0 720 Q 960 680 1920 720 L 1920 1080 L 0 1080 Z" fill="url(#grassGrad)"/>
+
+  <!-- House Body -->
+  <g filter="url(#shadow)">
+    <!-- Main Villa Building -->
+    <rect x="620" y="420" width="680" height="340" rx="6" fill="url(#wallGrad)"/>
+
+    <!-- Left Wing -->
+    <rect x="420" y="470" width="220" height="290" rx="6" fill="#F0EBE0"/>
+
+    <!-- Right Porch -->
+    <rect x="1280" y="480" width="200" height="280" rx="6" fill="#F0EBE0"/>
+
+    <!-- Roofs -->
+    <polygon points="600,430 960,260 1320,430" fill="url(#roofGrad)"/>
+    <polygon points="400,480 530,390 640,480" fill="#AA6133"/>
+    <polygon points="1260,490 1380,410 1500,490" fill="#AA6133"/>
+
+    <!-- Balcony Railing (Upper) -->
+    <rect x="740" y="470" width="440" height="100" rx="4" fill="#FAF7F0" stroke="#1E3A2F" stroke-width="2"/>
+    <line x1="770" y1="470" x2="770" y2="570" stroke="#1E3A2F" stroke-width="2"/>
+    <line x1="810" y1="470" x2="810" y2="570" stroke="#1E3A2F" stroke-width="2"/>
+    <line x1="850" y1="470" x2="850" y2="570" stroke="#1E3A2F" stroke-width="2"/>
+    <line x1="1070" y1="470" x2="1070" y2="570" stroke="#1E3A2F" stroke-width="2"/>
+    <line x1="1110" y1="470" x2="1110" y2="570" stroke="#1E3A2F" stroke-width="2"/>
+    <line x1="1150" y1="470" x2="1150" y2="570" stroke="#1E3A2F" stroke-width="2"/>
+
+    <!-- Balcony French Doors -->
+    <rect x="900" y="460" width="120" height="110" rx="3" fill="#1E3A2F"/>
+    <rect x="910" y="470" width="45" height="90" fill="#D3E5E0" opacity="0.8"/>
+    <rect x="965" y="470" width="45" height="90" fill="#D3E5E0" opacity="0.8"/>
+
+    <!-- Main Entrance Door (Ground) -->
+    <rect x="910" y="620" width="100" height="140" rx="4" fill="#6A3B1B"/>
+    <rect x="925" y="635" width="30" height="110" fill="#804722"/>
+    <rect x="965" y="635" width="30" height="110" fill="#804722"/>
+    <circle cx="955" cy="690" r="4" fill="#E6A868"/>
+
+    <!-- Windows Ground Floor -->
+    <rect x="680" y="630" width="110" height="100" rx="4" fill="#1E3A2F"/>
+    <rect x="688" y="638" width="44" height="84" fill="#FDF8EC"/>
+    <rect x="738" y="638" width="44" height="84" fill="#FDF8EC"/>
+
+    <rect x="1130" y="630" width="110" height="100" rx="4" fill="#1E3A2F"/>
+    <rect x="1138" y="638" width="44" height="84" fill="#FDF8EC"/>
+    <rect x="1188" y="638" width="44" height="84" fill="#FDF8EC"/>
+
+    <!-- Side Windows -->
+    <rect x="470" y="550" width="110" height="100" rx="4" fill="#1E3A2F"/>
+    <rect x="478" y="558" width="94" height="84" fill="#FDF8EC"/>
+
+    <rect x="1330" y="550" width="100" height="100" rx="4" fill="#1E3A2F"/>
+    <rect x="1338" y="558" width="84" height="84" fill="#FDF8EC"/>
+  </g>
+
+  <!-- Paved Entry Pathway -->
+  <polygon points="870,760 1050,760 1190,1080 730,1080" fill="#E4DBCB" opacity="0.9"/>
+
+  <!-- Garden Plants / Planters -->
+  <ellipse cx="610" cy="770" rx="50" ry="25" fill="#3D7359"/>
+  <ellipse cx="1310" cy="770" rx="50" ry="25" fill="#3D7359"/>
+  <circle cx="560" cy="750" r="30" fill="#2D5A46"/>
+  <circle cx="1360" cy="750" r="30" fill="#2D5A46"/>
+
+  <!-- Info Badge Overlay (bottom-left) -->
+  <rect x="60" y="860" width="560" height="160" rx="16" fill="#1E3A2F" opacity="0.94"/>
+  <text x="96" y="915" fill="#F6F3EB" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700">Premdhan Homestay • Exterior</text>
+  <text x="96" y="955" fill="#D8BEA3" font-family="system-ui, -apple-system, sans-serif" font-size="20">Replace with your real house photo</text>
+  <text x="96" y="990" fill="#A7C9BC" font-family="system-ui, -apple-system, sans-serif" font-size="18">Path: images/hero/hero.jpg  •  Recommended: 1920 × 1080 px</text>
+</svg>
+

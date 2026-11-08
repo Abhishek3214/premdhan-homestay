@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <rect width="800" height="600" fill="#F4EFE6"/>
+  <!-- Kitchen cabinets -->
+  <rect x="80" y="80" width="640" height="140" rx="6" fill="#365446"/>
+  <line x1="240" y1="80" x2="240" y2="220" stroke="#253D32" stroke-width="4"/>
+  <line x1="400" y1="80" x2="400" y2="220" stroke="#253D32" stroke-width="4"/>
+  <line x1="560" y1="80" x2="560" y2="220" stroke="#253D32" stroke-width="4"/>
+  <!-- Backsplash tiles -->
+  <rect x="80" y="220" width="640" height="130" fill="#EAE1D1"/>
+  <!-- Countertop -->
+  <rect x="60" y="350" width="680" height="30" rx="4" fill="#2E231F"/>
+  <!-- Base cabinets -->
+  <rect x="80" y="380" width="640" height="160" fill="#426655"/>
+  <!-- Dining Kettle / Cup -->
+  <path d="M480 320 L510 320 L520 350 L470 350 Z" fill="#D98A53"/>
+  <circle cx="360" cy="340" r="10" fill="#FAF5ED"/>
+  <!-- Tag overlay -->
+  <rect x="24" y="500" width="360" height="76" rx="10" fill="#1E3A2F" opacity="0.92"/>
+  <text x="44" y="534" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Kitchen &amp; Dining Area</text>
+  <text x="44" y="560" fill="#BED9CE" font-family="system-ui, sans-serif" font-size="13">Category: Kitchen (800 × 600 px)</text>
+</svg>
+

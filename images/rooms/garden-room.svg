@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wallGrd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E7EFEB"/>
+      <stop offset="100%" stop-color="#D5E0DC"/>
+    </linearGradient>
+    <linearGradient id="floorGrd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B2825A"/>
+      <stop offset="100%" stop-color="#91613A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#wallGrd)"/>
+  <rect y="520" width="1200" height="280" fill="url(#floorGrd)"/>
+
+  <!-- Large Picture Window with Garden Outside -->
+  <rect x="520" y="80" width="560" height="380" rx="8" fill="#7FA98B"/>
+  <circle cx="680" cy="220" r="80" fill="#A8CDA4" opacity="0.6"/>
+  <circle cx="860" cy="240" r="100" fill="#91BC8C" opacity="0.7"/>
+  <circle cx="980" cy="200" r="70" fill="#6B9668" opacity="0.8"/>
+  <rect x="520" y="80" width="560" height="380" rx="8" fill="none" stroke="#FAF7F0" stroke-width="12"/>
+
+  <!-- Bed on Left -->
+  <rect x="120" y="240" width="360" height="220" rx="10" fill="#3D291D"/>
+  <rect x="140" y="410" width="320" height="150" rx="8" fill="#FFFFFF"/>
+  <rect x="160" y="375" width="130" height="70" rx="8" fill="#F7F4EE" stroke="#DDD4C4" stroke-width="2"/>
+  <rect x="310" y="375" width="130" height="70" rx="8" fill="#F7F4EE" stroke="#DDD4C4" stroke-width="2"/>
+  <rect x="140" y="475" width="320" height="85" fill="#587A6C"/>
+
+  <!-- Cozy armchair -->
+  <rect x="860" y="460" width="160" height="150" rx="20" fill="#C27847"/>
+  <rect x="880" y="430" width="120" height="70" rx="12" fill="#AD6435"/>
+
+  <!-- Indoor plant -->
+  <path d="M500 500 L530 500 L525 580 L505 580 Z" fill="#A86E46"/>
+  <ellipse cx="515" cy="470" rx="40" ry="60" fill="#2D5A46"/>
+  <ellipse cx="540" cy="480" rx="35" ry="40" fill="#437D63"/>
+
+  <!-- Label badge -->
+  <rect x="40" y="660" width="540" height="100" rx="12" fill="#1E3A2F" opacity="0.94"/>
+  <text x="68" y="705" fill="#F6F3EB" font-family="system-ui, sans-serif" font-size="24" font-weight="700">Garden View Room</text>
+  <text x="68" y="740" fill="#C2D8CD" font-family="system-ui, sans-serif" font-size="16">Recommended: 1200 × 800 px  •  images/rooms/garden-room.jpg</text>
+</svg>
+

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <!-- Sky -->
+  <rect width="800" height="380" fill="#E4EEEA"/>
+  <circle cx="680" cy="110" r="50" fill="#F0C78A" opacity="0.6"/>
+  <!-- Garden Trees & Hedge -->
+  <ellipse cx="200" cy="380" rx="220" ry="120" fill="#4B7761"/>
+  <ellipse cx="580" cy="370" rx="260" ry="130" fill="#385F4C"/>
+  <rect y="380" width="800" height="220" fill="#2E4F3F"/>
+  <!-- Garden Patio Chairs & Table -->
+  <rect x="360" y="420" width="80" height="40" rx="6" fill="#FFFFFF"/>
+  <line x1="400" y1="460" x2="400" y2="510" stroke="#FFFFFF" stroke-width="6"/>
+  <circle cx="310" cy="460" r="28" fill="#D98A53"/>
+  <circle cx="490" cy="460" r="28" fill="#D98A53"/>
+  <!-- Flowers -->
+  <circle cx="160" cy="430" r="8" fill="#F4B084"/>
+  <circle cx="220" cy="450" r="8" fill="#F4B084"/>
+  <circle cx="620" cy="440" r="8" fill="#F4B084"/>
+  <!-- Tag overlay -->
+  <rect x="24" y="500" width="360" height="76" rx="10" fill="#1E3A2F" opacity="0.92"/>
+  <text x="44" y="534" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Garden Patio &amp; Courtyard</text>
+  <text x="44" y="560" fill="#BED9CE" font-family="system-ui, sans-serif" font-size="13">Category: Outdoors (800 × 600 px)</text>
+</svg>
+

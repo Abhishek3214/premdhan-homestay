@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wallFam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EBE3D7"/>
+      <stop offset="100%" stop-color="#DDD3C4"/>
+    </linearGradient>
+    <linearGradient id="floorFam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8F623F"/>
+      <stop offset="100%" stop-color="#6F4B30"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#wallFam)"/>
+  <rect y="520" width="1200" height="280" fill="url(#floorFam)"/>
+
+  <!-- Balcony door -->
+  <rect x="80" y="60" width="220" height="460" rx="4" fill="#C5DCD6" stroke="#4A3423" stroke-width="8"/>
+  <line x1="190" y1="60" x2="190" y2="520" stroke="#4A3423" stroke-width="6"/>
+
+  <!-- Main Bed -->
+  <rect x="360" y="260" width="460" height="200" rx="10" fill="#4A3423"/>
+  <rect x="380" y="410" width="420" height="150" rx="8" fill="#FFFFFF"/>
+  <rect x="400" y="375" width="160" height="70" rx="8" fill="#F7F4EE" stroke="#DDD4C4" stroke-width="2"/>
+  <rect x="620" y="375" width="160" height="70" rx="8" fill="#F7F4EE" stroke="#DDD4C4" stroke-width="2"/>
+  <rect x="380" y="475" width="420" height="85" fill="#C27847"/>
+
+  <!-- Second Bed (Single / Kid's bed) -->
+  <rect x="870" y="320" width="280" height="160" rx="8" fill="#4A3423"/>
+  <rect x="880" y="430" width="260" height="130" rx="6" fill="#FFFFFF"/>
+  <rect x="910" y="400" width="140" height="60" rx="8" fill="#F7F4EE" stroke="#DDD4C4" stroke-width="2"/>
+  <rect x="880" y="480" width="260" height="80" fill="#2E5041"/>
+
+  <!-- Wardrobe & mirror -->
+  <rect x="20" y="160" width="40" height="360" fill="#5A3A25"/>
+
+  <!-- Floor carpet -->
+  <ellipse cx="600" cy="650" rx="380" ry="70" fill="#CEC3AE" opacity="0.7"/>
+
+  <!-- Label badge -->
+  <rect x="40" y="660" width="540" height="100" rx="12" fill="#1E3A2F" opacity="0.94"/>
+  <text x="68" y="705" fill="#F6F3EB" font-family="system-ui, sans-serif" font-size="24" font-weight="700">Spacious Family Suite</text>
+  <text x="68" y="740" fill="#C2D8CD" font-family="system-ui, sans-serif" font-size="16">Recommended: 1200 × 800 px  •  images/rooms/family-suite.jpg</text>
+</svg>
+

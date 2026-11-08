@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <rect width="800" height="600" fill="#EFE8DD"/>
+  <!-- Rug -->
+  <ellipse cx="400" cy="460" rx="280" ry="80" fill="#D5C5B1"/>
+  <!-- Sofa -->
+  <rect x="180" y="240" width="440" height="150" rx="20" fill="#426655"/>
+  <rect x="220" y="320" width="360" height="90" rx="14" fill="#5A8370"/>
+  <!-- Cushions -->
+  <rect x="240" y="270" width="80" height="70" rx="12" fill="#D98A53"/>
+  <rect x="480" y="270" width="80" height="70" rx="12" fill="#FAF5ED"/>
+  <!-- Coffee table -->
+  <rect x="300" y="420" width="200" height="50" rx="8" fill="#845938"/>
+  <circle cx="370" cy="410" r="14" fill="#FAF5ED"/>
+  <circle cx="430" cy="405" r="10" fill="#426655"/>
+  <!-- Indoor Plant -->
+  <ellipse cx="680" cy="300" rx="40" ry="70" fill="#2E5440"/>
+  <rect x="665" y="360" width="30" height="60" rx="4" fill="#C27847"/>
+  <!-- Tag overlay -->
+  <rect x="24" y="500" width="360" height="76" rx="10" fill="#1E3A2F" opacity="0.92"/>
+  <text x="44" y="534" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Living Room • Guest Seating</text>
+  <text x="44" y="560" fill="#BED9CE" font-family="system-ui, sans-serif" font-size="13">Category: Living (800 × 600 px)</text>
+</svg>
+

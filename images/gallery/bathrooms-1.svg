@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <rect width="800" height="600" fill="#E4EBE8"/>
+  <!-- Tiles Pattern -->
+  <line x1="0" y1="150" x2="800" y2="150" stroke="#D1DDD8" stroke-width="2"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#D1DDD8" stroke-width="2"/>
+  <line x1="0" y1="450" x2="800" y2="450" stroke="#D1DDD8" stroke-width="2"/>
+  <!-- Vanity Mirror -->
+  <rect x="280" y="70" width="240" height="260" rx="120" fill="#F4F8F7" stroke="#A78358" stroke-width="8"/>
+  <ellipse cx="400" cy="200" rx="90" ry="100" fill="#EBF2F0"/>
+  <!-- Counter & Sink -->
+  <rect x="200" y="360" width="400" height="130" rx="8" fill="#FFFFFF" stroke="#D1DDD8" stroke-width="3"/>
+  <rect x="300" y="370" width="200" height="40" rx="10" fill="#E6EEEC"/>
+  <!-- Faucet -->
+  <path d="M400 340 L400 370 M385 340 L415 340" stroke="#7A8B86" stroke-width="6" stroke-linecap="round"/>
+  <!-- Fresh rolled towels -->
+  <rect x="520" y="340" width="60" height="20" rx="8" fill="#F4EDE2"/>
+  <rect x="520" y="325" width="55" height="18" rx="8" fill="#F4EDE2"/>
+  <!-- Tag overlay -->
+  <rect x="24" y="500" width="360" height="76" rx="10" fill="#1E3A2F" opacity="0.92"/>
+  <text x="44" y="534" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Ensuite Bathroom • Hot Water</text>
+  <text x="44" y="560" fill="#BED9CE" font-family="system-ui, sans-serif" font-size="13">Category: Bathrooms (800 × 600 px)</text>
+</svg>
+
