@@ -95,6 +95,27 @@ The website has realistic and safe placeholders for details you have not confirm
 
 ---
 
+## 🌐 Live Website & Repository
+
+- **Live Website Address**: [https://Abhishek3214.github.io/premdhan-homestay/](https://Abhishek3214.github.io/premdhan-homestay/)
+- **GitHub Repository**: [https://github.com/Abhishek3214/premdhan-homestay](https://github.com/Abhishek3214/premdhan-homestay)
+
+---
+
+## 🚀 How to Update the Website in the Future
+
+Whenever you make changes to your website (such as updating photos, prices, contact information, or text), run these three commands in your terminal:
+
+```bash
+git add .
+git commit -m "Describe the change"
+git push
+```
+
+GitHub Pages will automatically detect your push and deploy your updates to the live site within 1 to 2 minutes.
+
+---
+
 ## 🚀 How to Deploy for Free
 
 ### Option 1: Netlify (Recommended — Drag & Drop)

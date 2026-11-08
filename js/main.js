@@ -1,7 +1,12 @@
+// WHATSAPP CONTACT CONFIGURATION
+// Put your WhatsApp number here in country code + number format (digits only, no + or spaces).
+// e.g. "919876543210" for India (+91)
+const WHATSAPP_NUMBER = "916353402373"; // country code + number, digits only, no + or spaces
+
 /**
  * PREMDHAN HOMESTAY - MAIN JAVASCRIPT
  * Plain vanilla JS, zero dependencies.
- * Handles: Sticky nav, Mobile drawer, Gallery filtering, Lightbox with touch swipe & keyboard, Copy phone.
+ * Handles: Sticky nav, Mobile drawer, Gallery filtering, Lightbox with touch swipe & keyboard, Copy phone, WhatsApp enquiry form.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -315,5 +320,289 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  /* ==========================================================================
+     6. WhatsApp Enquiry Form & WhatsApp Links Synchronizer
+     ========================================================================== */
+  const MONTH_NAMES = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+
+  // Helper: check if WHATSAPP_NUMBER is still the placeholder
+  const isPlaceholderNumber = (num) => {
+    return !num || num.includes("X") || num.includes("x") || !/^\d{10,15}$/.test(num.trim());
+  };
+
+  // Helper: format YYYY-MM-DD date object
+  const toISODateString = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
+  // Helper: format YYYY-MM-DD to "12 Dec 2026"
+  const formatStayDate = (isoStr) => {
+    if (!isoStr) return "";
+    const parts = isoStr.split("-");
+    if (parts.length !== 3) return isoStr;
+    const year = parts[0];
+    const monthIdx = parseInt(parts[1], 10) - 1;
+    const day = parseInt(parts[2], 10);
+    const monthName = MONTH_NAMES[monthIdx] || "";
+    return `${day} ${monthName} ${year}`;
+  };
+
+  // Synchronize all WhatsApp links on the page with WHATSAPP_NUMBER
+  const isPlaceholder = isPlaceholderNumber(WHATSAPP_NUMBER);
+  const waLinks = document.querySelectorAll('a[href*="wa.me/"]');
+
+  waLinks.forEach((link) => {
+    if (isPlaceholder) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const ownerAlert = document.getElementById("form-owner-alert");
+        if (ownerAlert) {
+          ownerAlert.textContent = "Owner: add the WhatsApp number in js/main.js";
+          ownerAlert.style.display = "block";
+          ownerAlert.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        showToast("Owner: add the WhatsApp number in js/main.js");
+      });
+    } else {
+      const currentHref = link.getAttribute("href");
+      link.setAttribute("href", currentHref.replace(/wa\.me\/\w+/, `wa.me/${WHATSAPP_NUMBER}`));
+    }
+  });
+
+  // Form Handling
+  const enquiryForm = document.getElementById("enquiry-form");
+  if (enquiryForm) {
+    const ownerAlert = document.getElementById("form-owner-alert");
+    const nameInput = document.getElementById("guest-name");
+    const phoneInput = document.getElementById("guest-phone");
+    const roomSelect = document.getElementById("room-choice");
+    const checkInInput = document.getElementById("check-in-date");
+    const checkOutInput = document.getElementById("check-out-date");
+    const guestsInput = document.getElementById("num-guests");
+    const messageInput = document.getElementById("guest-message");
+    const submitBtn = document.getElementById("enquiry-submit-btn");
+    const confirmationEl = document.getElementById("form-confirmation");
+
+    // Show warning banner initially if WHATSAPP_NUMBER is still the placeholder
+    if (isPlaceholder && ownerAlert) {
+      ownerAlert.textContent = "Owner: add the WhatsApp number in js/main.js";
+      ownerAlert.style.display = "block";
+    }
+
+    // Set minimum date restrictions (Check-in cannot be in the past)
+    const today = new Date();
+    const todayStr = toISODateString(today);
+    if (checkInInput) {
+      checkInInput.min = todayStr;
+    }
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    if (checkOutInput) {
+      checkOutInput.min = toISODateString(tomorrow);
+    }
+
+    // Dynamic check-out date update when check-in changes
+    if (checkInInput && checkOutInput) {
+      checkInInput.addEventListener("change", () => {
+        if (checkInInput.value) {
+          const [y, m, d] = checkInInput.value.split("-").map(Number);
+          const nextDay = new Date(y, m - 1, d + 1);
+          const minCheckOut = toISODateString(nextDay);
+          checkOutInput.min = minCheckOut;
+          if (checkOutInput.value && checkOutInput.value <= checkInInput.value) {
+            checkOutInput.value = minCheckOut;
+          }
+        }
+      });
+    }
+
+    // Helper: set or clear field error
+    const setFieldError = (inputEl, errorId, errorMsg) => {
+      const errorEl = document.getElementById(errorId);
+      if (!inputEl) return;
+      if (errorMsg) {
+        inputEl.classList.add("is-invalid");
+        inputEl.setAttribute("aria-invalid", "true");
+        if (errorEl) errorEl.textContent = errorMsg;
+      } else {
+        inputEl.classList.remove("is-invalid");
+        inputEl.removeAttribute("aria-invalid");
+        if (errorEl) errorEl.textContent = "";
+      }
+    };
+
+    // Clear individual field errors on user interaction
+    const inputFieldPairs = [
+      { el: nameInput, errorId: "guest-name-error" },
+      { el: phoneInput, errorId: "guest-phone-error" },
+      { el: roomSelect, errorId: "room-choice-error" },
+      { el: checkInInput, errorId: "check-in-date-error" },
+      { el: checkOutInput, errorId: "check-out-date-error" },
+      { el: guestsInput, errorId: "num-guests-error" },
+      { el: messageInput, errorId: "guest-message-error" }
+    ];
+
+    inputFieldPairs.forEach(({ el, errorId }) => {
+      if (el) {
+        el.addEventListener("input", () => setFieldError(el, errorId, ""));
+        el.addEventListener("change", () => setFieldError(el, errorId, ""));
+      }
+    });
+
+    // Form submit listener
+    enquiryForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let hasError = false;
+      let firstInvalidEl = null;
+
+      const markInvalid = (el, errorId, msg) => {
+        setFieldError(el, errorId, msg);
+        if (!firstInvalidEl && el) {
+          firstInvalidEl = el;
+        }
+        hasError = true;
+      };
+
+      // 1. Name validation
+      const nameVal = nameInput ? nameInput.value.trim() : "";
+      if (!nameVal) {
+        markInvalid(nameInput, "guest-name-error", "Please enter your name.");
+      } else {
+        setFieldError(nameInput, "guest-name-error", "");
+      }
+
+      // 2. Phone validation (basic check for 10 digits)
+      const phoneVal = phoneInput ? phoneInput.value.trim() : "";
+      const phoneDigits = phoneVal.replace(/\D/g, "");
+      if (!phoneVal) {
+        markInvalid(phoneInput, "guest-phone-error", "Please enter your phone number.");
+      } else if (phoneDigits.length < 10) {
+        markInvalid(phoneInput, "guest-phone-error", "Please enter a valid phone number (at least 10 digits).");
+      } else {
+        setFieldError(phoneInput, "guest-phone-error", "");
+      }
+
+      // 3. Room type validation
+      const roomVal = roomSelect ? roomSelect.value.trim() : "";
+      if (!roomVal) {
+        markInvalid(roomSelect, "room-choice-error", "Please select a room type.");
+      } else {
+        setFieldError(roomSelect, "room-choice-error", "");
+      }
+
+      // 4. Check-in date validation
+      const checkInVal = checkInInput ? checkInInput.value : "";
+      if (!checkInVal) {
+        markInvalid(checkInInput, "check-in-date-error", "Please select a check-in date.");
+      } else if (checkInVal < todayStr) {
+        markInvalid(checkInInput, "check-in-date-error", "Check-in date cannot be in the past.");
+      } else {
+        setFieldError(checkInInput, "check-in-date-error", "");
+      }
+
+      // 5. Check-out date validation (must be after check-in)
+      const checkOutVal = checkOutInput ? checkOutInput.value : "";
+      if (!checkOutVal) {
+        markInvalid(checkOutInput, "check-out-date-error", "Please select a check-out date.");
+      } else if (checkInVal && checkOutVal <= checkInVal) {
+        markInvalid(checkOutInput, "check-out-date-error", "Check-out date must be after check-in date.");
+      } else {
+        setFieldError(checkOutInput, "check-out-date-error", "");
+      }
+
+      // 6. Number of guests validation (whole number of at least 1)
+      const guestsVal = guestsInput ? guestsInput.value.trim() : "";
+      const guestsNum = Number(guestsVal);
+      if (!guestsVal || isNaN(guestsNum) || !Number.isInteger(guestsNum) || guestsNum < 1) {
+        markInvalid(guestsInput, "num-guests-error", "Please enter a whole number of at least 1 guest.");
+      } else {
+        setFieldError(guestsInput, "num-guests-error", "");
+      }
+
+      // If any invalid fields, focus the first one and halt
+      if (hasError) {
+        if (firstInvalidEl) {
+          firstInvalidEl.focus();
+        }
+        return;
+      }
+
+      // Check placeholder WhatsApp number
+      if (isPlaceholderNumber(WHATSAPP_NUMBER)) {
+        if (ownerAlert) {
+          ownerAlert.textContent = "Owner: add the WhatsApp number in js/main.js";
+          ownerAlert.style.display = "block";
+          ownerAlert.focus();
+        }
+        showToast("Owner: add the WhatsApp number in js/main.js");
+        return;
+      } else if (ownerAlert) {
+        ownerAlert.style.display = "none";
+      }
+
+      // Build message plain text with line breaks
+      const messageVal = messageInput ? messageInput.value.trim() : "";
+      const lines = [
+        "Hello Premdhan Homestay, I would like to enquire about a stay.",
+        "",
+        `Name: ${nameVal}`,
+        `Phone: ${phoneVal}`,
+        `Room type: ${roomVal}`,
+        `Check-in: ${formatStayDate(checkInVal)}`,
+        `Check-out: ${formatStayDate(checkOutVal)}`,
+        `Guests: ${guestsVal}`
+      ];
+
+      if (messageVal.length > 0) {
+        lines.push(`Message: ${messageVal}`);
+      }
+
+      lines.push("");
+      lines.push("Please let me know availability and the rates. Thank you.");
+
+      const fullMessage = lines.join("\n");
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(fullMessage)}`;
+
+      // Disable button briefly to prevent double opening
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        setTimeout(() => {
+          submitBtn.disabled = false;
+        }, 3000);
+      }
+
+      // Open WhatsApp: phones navigate in same tab, desktop in a new tab with rel="noopener"
+      const isMobileDevice =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+        (window.matchMedia && window.matchMedia("(max-width: 768px)").matches);
+
+      if (isMobileDevice) {
+        window.location.href = whatsappUrl;
+      } else {
+        const link = document.createElement("a");
+        link.href = whatsappUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      // Confirmation message with fallback link under button (entries preserved)
+      if (confirmationEl) {
+        confirmationEl.innerHTML = `WhatsApp should be opening. If it did not open, <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">tap here</a>`;
+        confirmationEl.classList.add("show");
+      }
+    });
+  }
 });
 

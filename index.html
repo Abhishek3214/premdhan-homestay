@@ -1183,63 +1183,117 @@
             </div>
           </div>
 
-          <!-- Optional Simple Enquiry Form (Netlify Forms Ready) -->
+          <!-- Enquiry Form (WhatsApp Direct) -->
           <div class="enquiry-form-card">
             <h3>Send an Inquiry</h3>
             <p>Fill out your details and we'll get back to you with rates and availability.</p>
 
-            <form 
-              name="booking-inquiry" 
-              method="POST" 
-              data-netlify="true" 
-              netlify-honeypot="bot-field"
-            >
-              <!-- Hidden honeypot field for spam prevention on Netlify -->
-              <p class="sr-only">
-                <label>Don’t fill this out if you're human: <input name="bot-field"></label>
-              </p>
-              <input type="hidden" name="form-name" value="booking-inquiry">
+            <div id="form-owner-alert" class="form-owner-alert" role="alert" tabindex="-1"></div>
 
+            <form id="enquiry-form" class="enquiry-form" novalidate>
               <div class="form-group">
-                <label for="guest-name" class="form-label">Your Name *</label>
-                <input type="text" id="guest-name" name="name" class="form-input" required placeholder="e.g. Ramesh Patel">
+                <label for="guest-name" class="form-label">Name *</label>
+                <input 
+                  type="text" 
+                  id="guest-name" 
+                  name="name" 
+                  class="form-input" 
+                  required 
+                  placeholder="e.g. Ramesh Patel"
+                  autocomplete="name"
+                  aria-describedby="guest-name-error"
+                >
+                <span class="field-error" id="guest-name-error" aria-live="polite"></span>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
-                  <label for="guest-phone" class="form-label">Phone / WhatsApp *</label>
-                  <input type="tel" id="guest-phone" name="phone" class="form-input" required placeholder="+91 98765 00000">
+                  <label for="guest-phone" class="form-label">Phone number *</label>
+                  <input 
+                    type="tel" 
+                    id="guest-phone" 
+                    name="phone" 
+                    class="form-input" 
+                    required 
+                    placeholder="e.g. 9876543210"
+                    autocomplete="tel"
+                    aria-describedby="guest-phone-error"
+                  >
+                  <span class="field-error" id="guest-phone-error" aria-live="polite"></span>
                 </div>
                 <div class="form-group">
-                  <label for="room-choice" class="form-label">Room Preference</label>
-                  <select id="room-choice" name="room" class="form-select">
-                    <option value="Any Room">Any Available Room</option>
-                    <option value="Double Bed Room (Rooms 103 &amp; 104)">Double Bed Room (Rooms 103 &amp; 104)</option>
-                    <option value="Three Bed Room (Room 101)">Three Bed Room (Room 101)</option>
-                    <option value="Four Bed Room (Room 102)">Four Bed Room (Room 102)</option>
+                  <label for="room-choice" class="form-label">Room type *</label>
+                  <select id="room-choice" name="room" class="form-select" required aria-describedby="room-choice-error">
+                    <option value="" disabled selected>Select room type</option>
+                    <option value="Double Bed Room (103, 104)">Double Bed Room (103, 104)</option>
+                    <option value="Three Bed Room (101)">Three Bed Room (101)</option>
+                    <option value="Four Bed Room (102)">Four Bed Room (102)</option>
+                    <option value="Not sure">Not sure</option>
                   </select>
+                  <span class="field-error" id="room-choice-error" aria-live="polite"></span>
                 </div>
               </div>
 
-              <div class="form-row">
+              <div class="form-row form-row-dates">
                 <div class="form-group">
-                  <label for="check-in-date" class="form-label">Check-in Date</label>
-                  <input type="date" id="check-in-date" name="check_in" class="form-input">
+                  <label for="check-in-date" class="form-label">Check-in date *</label>
+                  <input 
+                    type="date" 
+                    id="check-in-date" 
+                    name="check_in" 
+                    class="form-input" 
+                    required
+                    aria-describedby="check-in-date-error"
+                  >
+                  <span class="field-error" id="check-in-date-error" aria-live="polite"></span>
                 </div>
                 <div class="form-group">
-                  <label for="num-guests" class="form-label">Number of Guests</label>
-                  <input type="number" id="num-guests" name="guests" min="1" max="15" class="form-input" placeholder="2">
+                  <label for="check-out-date" class="form-label">Check-out date *</label>
+                  <input 
+                    type="date" 
+                    id="check-out-date" 
+                    name="check_out" 
+                    class="form-input" 
+                    required
+                    aria-describedby="check-out-date-error"
+                  >
+                  <span class="field-error" id="check-out-date-error" aria-live="polite"></span>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="guest-message" class="form-label">Special Requests / Message</label>
-                <textarea id="guest-message" name="message" class="form-textarea" placeholder="Tell us your arrival time or any special dietary requirements..."></textarea>
+                <label for="num-guests" class="form-label">Number of guests *</label>
+                <input 
+                  type="number" 
+                  id="num-guests" 
+                  name="guests" 
+                  min="1" 
+                  step="1"
+                  class="form-input" 
+                  placeholder="e.g. 2"
+                  required
+                  aria-describedby="num-guests-error"
+                >
+                <span class="field-error" id="num-guests-error" aria-live="polite"></span>
               </div>
 
-              <button type="submit" class="btn btn-primary" style="width: 100%;">
-                Submit Inquiry
+              <div class="form-group">
+                <label for="guest-message" class="form-label">Message</label>
+                <textarea 
+                  id="guest-message" 
+                  name="message" 
+                  class="form-textarea" 
+                  placeholder="Tell us your arrival time or any special requests (optional)..."
+                  aria-describedby="guest-message-error"
+                ></textarea>
+                <span class="field-error" id="guest-message-error" aria-live="polite"></span>
+              </div>
+
+              <button type="submit" id="enquiry-submit-btn" class="btn btn-primary" style="width: 100%;">
+                Send enquiry on WhatsApp
               </button>
+
+              <div id="form-confirmation" class="form-confirmation" role="status" aria-live="polite"></div>
             </form>
           </div>
         </div>

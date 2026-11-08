@@ -3,5 +3,6 @@ Thumbs.db
 node_modules/
 .vscode/
 .idea/
+*.log
 *.zip
-
+renamed_images/
