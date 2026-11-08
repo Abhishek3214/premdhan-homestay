@@ -33,26 +33,34 @@ premdhanhomestay/
 
 ---
 
-## 🖼️ How to Replace Placeholder Photos with Real Photos
+## 🖼️ Real Photos Active on the Site
 
-Place your actual photos into the corresponding `images/` folders. You can use standard `.jpg` or `.webp` files. Then update the file paths in `index.html`.
+The real homestay photos from `renamed_images/` have been processed, web-optimized, and placed directly into `images/` for fast loading and crisp resolution across all devices.
 
-### 1. Photo Mapping & Recommended Dimensions
+### Active Photo Mapping
 
-| Room / Area | File to Place in Folder | Line in `index.html` | Recommended Dimensions | Ratio |
-| :--- | :--- | :--- | :--- | :--- |
-| **Hero (Exterior House View)** | `images/hero/hero.jpg` | Line `123` | **1920 × 1080 px** | 16:9 |
-| **Double Bed Room (Rooms 103 & 104)** | `images/rooms/room-double.jpg` | Line `235` | **1200 × 800 px** | 3:2 |
-| **Three Bed Room (Room 101)** | `images/rooms/room-three-bed.jpg` | Line `311` | **1200 × 800 px** | 3:2 |
-| **Four Bed Room (Room 102)** | `images/rooms/room-four-bed.jpg` | Line `387` | **1200 × 800 px** | 3:2 |
-| **Gallery: Rooms 103 & 104** | `images/gallery/rooms-1.jpg` | Line `483` | **800 × 600 px** | 4:3 |
-| **Gallery: Room 101** | `images/gallery/rooms-2.jpg` | Line `512` | **800 × 600 px** | 4:3 |
-| **Gallery: Room 102** | `images/gallery/rooms-3.jpg` | Line `541` | **800 × 600 px** | 4:3 |
-| **Gallery: Attached Bathroom** | `images/gallery/bathrooms-1.jpg` | Line `570` | **800 × 600 px** | 4:3 |
-| **Gallery: Outdoors & Entrance** | `images/gallery/outdoors-1.jpg` | Line `599` | **800 × 600 px** | 4:3 |
-| **Gallery: Free Parking** | `images/gallery/parking-1.jpg` | Line `628` | **800 × 600 px** | 4:3 |
-
-> 💡 **Tip**: Compress your photos using a free tool like [TinyPNG / TinyJPG](https://tinypng.com) or [Squoosh](https://squoosh.app) to keep file sizes under 250 KB each.
+| Area / Card | File Path | Source Image | Description |
+| :--- | :--- | :--- | :--- |
+| **Hero Banner** | `images/hero/hero.jpg` | `Bedroom_1_Bed_Overview.jpg` | Homestay guest room overview |
+| **Double Bed Room** | `images/rooms/room-double.jpg` | `Bedroom_2_Full_Room_View.jpg` | Rooms 103 & 104 full perspective |
+| **Three Bed Room** | `images/rooms/room-three-bed.jpg` | `Bedroom_1_Bed_Overview.jpg` | Room 101 double & single bed setup |
+| **Four Bed Room** | `images/rooms/room-four-bed.jpg` | `Bedroom_3_Two_Double_Beds_Full_View.jpg` | Room 102 two double beds |
+| **Gallery (Rooms)** | `images/gallery/room-double-overview.jpg` | `Bedroom_2_Full_Room_View.jpg` | Rooms 103 & 104 double bed room |
+| **Gallery (Rooms)** | `images/gallery/room-three-overview.jpg` | `Bedroom_1_Bed_Overview.jpg` | Room 101 three beds setup |
+| **Gallery (Rooms)** | `images/gallery/room-four-beds.jpg` | `Bedroom_3_Two_Double_Beds_Full_View.jpg` | Room 102 four bed room |
+| **Gallery (Rooms)** | `images/gallery/room-double-bedside.jpg` | `Bedroom_2_Bedside_Angle.jpg` | Rooms 103 & 104 bedside view |
+| **Gallery (Rooms)** | `images/gallery/room-three-full.jpg` | `Bedroom_1_Triple_Full_Room.jpg` | Room 101 full room view |
+| **Gallery (Rooms)** | `images/gallery/room-three-double.jpg` | `Bedroom_1_Double_Bed_Angle.jpg` | Room 101 double bed angle |
+| **Gallery (Rooms)** | `images/gallery/room-double-closeup.jpg` | `Bedroom_2_Bed_Close_Up.jpg` | Rooms 103 & 104 bed detail |
+| **Gallery (Rooms)** | `images/gallery/room-three-mirror.jpg` | `Bedroom_1_Dressing_Mirror.jpg` | Room 101 dressing mirror |
+| **Gallery (Rooms)** | `images/gallery/room-three-single.jpg` | `Bedroom_1_Single_Bed_Angle.jpg` | Room 101 single bed angle |
+| **Gallery (Rooms)** | `images/gallery/room-three-window.jpg` | `Bedroom_1_Window_Headboard.jpg` | Room 101 window & headboard |
+| **Gallery (Rooms)** | `images/gallery/room-three-console.jpg` | `Bedroom_1_Side_Console.jpg` | Room 101 side console |
+| **Gallery (Bathrooms)** | `images/gallery/bathroom-washbasin.jpg` | `Toilet_Washbasin_Mirror_Entrance.jpg` | Washbasin, mirror & clean fixtures |
+| **Gallery (Bathrooms)** | `images/gallery/bathroom-commode.jpg` | `Toilet_Commode_Interior.jpg` | Clean western toilet & hot water |
+| **Gallery (Bathrooms)** | `images/gallery/bathroom-attached.jpg` | `Bedroom_1_Attached_Washroom_View.jpg` | Room 101 attached washroom view |
+| **Gallery (Outdoors)** | `images/gallery/outdoors-1.svg` | Placeholder SVG | Front entrance (replace with real exterior when ready) |
+| **Gallery (Parking)** | `images/gallery/parking-1.svg` | Placeholder SVG | Parking area (replace with real parking photo when ready) |
 
 ---
 
