@@ -72,15 +72,15 @@ Open `index.html` in any text editor (VS Code, TextEdit, Notepad):
   Update both `data-full="..."` and `<img src="..." alt="...">` with your gallery photo paths and descriptive captions.
 
 ### 2. Contact & Booking Details
-- **Phone Number**: `+91 94272 42787` (configured across all links & copy buttons)
+- **Phone Number**: `+91 63534 02373` (configured across all links & copy buttons)
 - **WhatsApp Direct Links**:
-  - Room 1 Inquire button: Line `249` (`https://wa.me/919427242787`)
-  - Room 2 Inquire button: Line `314` (`https://wa.me/919427242787`)
-  - Room 3 Inquire button: Line `379` (`https://wa.me/919427242787`)
-  - Contact Section WhatsApp button: Line `861` (`https://wa.me/919427242787`)
+  - Room 1 Inquire button: Line `249` (`https://wa.me/916353402373`)
+  - Room 2 Inquire button: Line `314` (`https://wa.me/916353402373`)
+  - Room 3 Inquire button: Line `379` (`https://wa.me/916353402373`)
+  - Contact Section WhatsApp button: Line `833` (`https://wa.me/916353402373`)
 - **Phone Number Display & Copy Button**:
-  - Readable text: Line `833` (`+91 94272 42787`)
-  - Copy button attribute: Line `840` (`data-copy="+919427242787"`)
+  - Readable text: Line `805` (`+91 63534 02373`)
+  - Copy button attribute: Line `812` (`data-copy="+916353402373"`)
 - **Email Address**:
   - Readable text: Line `727`
   - Mailto link: Line `731` (`mailto:stay@premdhanhomestay.com`)
