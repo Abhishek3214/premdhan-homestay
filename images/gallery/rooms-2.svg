@@ -1,20 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
   <rect width="800" height="600" fill="#EAE4D8"/>
-  <!-- Window morning light -->
-  <polygon points="550,0 720,0 800,600 480,600" fill="#FFFDF8" opacity="0.4"/>
-  <!-- Room corner with desk & window -->
-  <rect x="520" y="80" width="220" height="300" rx="4" fill="#B3CFCE" stroke="#634533" stroke-width="6"/>
-  <!-- Work / Dressing Desk -->
-  <rect x="180" y="360" width="300" height="30" rx="4" fill="#634533"/>
-  <line x1="210" y1="390" x2="210" y2="520" stroke="#634533" stroke-width="6"/>
-  <line x1="450" y1="390" x2="450" y2="520" stroke="#634533" stroke-width="6"/>
-  <!-- Mirror on desk -->
-  <ellipse cx="330" cy="270" rx="70" ry="85" fill="#FAFBFB" stroke="#C27847" stroke-width="6"/>
-  <!-- Chair -->
-  <rect x="290" y="400" width="80" height="90" rx="10" fill="#2D5A46"/>
+  <!-- Three Bed Room layout -->
+  <rect x="80" y="220" width="360" height="220" rx="8" fill="#4A3423"/>
+  <rect x="95" y="320" width="330" height="150" rx="6" fill="#FFFFFF"/>
+  <rect x="95" y="380" width="330" height="70" fill="#C27847"/>
+
+  <rect x="480" y="250" width="260" height="190" rx="8" fill="#4A3423"/>
+  <rect x="495" y="340" width="230" height="130" rx="6" fill="#FFFFFF"/>
+  <rect x="495" y="390" width="230" height="60" fill="#2E5041"/>
+
+  <!-- AC unit -->
+  <rect x="290" y="80" width="220" height="55" rx="6" fill="#FFFFFF" stroke="#D3C9BA" stroke-width="2"/>
+
   <!-- Tag overlay -->
-  <rect x="24" y="500" width="360" height="76" rx="10" fill="#1E3A2F" opacity="0.92"/>
-  <text x="44" y="534" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Dressing Table &amp; Study Desk</text>
+  <rect x="24" y="500" width="380" height="76" rx="10" fill="#1E3A2F" opacity="0.94"/>
+  <text x="44" y="534" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Room 101 • Three Bed Room</text>
   <text x="44" y="560" fill="#BED9CE" font-family="system-ui, sans-serif" font-size="13">Category: Rooms (800 × 600 px)</text>
 </svg>
-
