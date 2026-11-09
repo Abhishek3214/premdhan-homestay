@@ -79,13 +79,14 @@ The website has realistic and safe placeholders for details you have not confirm
    - Currently set to: `Near Dwarkadhish Temple Area, Dwarka, Gujarat – 361335` (Lines `780–784`).
    - Update with your exact door / lane / landmark when ready.
 5. **Email Address**:
-   - Currently set to placeholder `stay@premdhanhomestay.com` (Lines `879` & `883`).
+   - Configured as `premdhanhomestay@gmail.com`.
 
 ---
 
 ## 📞 Host Contact Details Configured
 
 - **Phone Number**: `+91 63534 02373`
+- **Email Address**: `premdhanhomestay@gmail.com`
 - **1-Click WhatsApp Inquiries**:
   - Double Bed Room (Rooms 103 & 104): `https://wa.me/916353402373?text=...`
   - Three Bed Room (Room 101): `https://wa.me/916353402373?text=...`

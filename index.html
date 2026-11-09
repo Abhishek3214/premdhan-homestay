@@ -45,6 +45,7 @@
     "description": "Premdhan Homestay in Dwarka offers 4 private guest rooms with attached private bathrooms, solar hot water, AC, Wi-Fi, RO drinking water, and free parking.",
     "url": "https://premdhanhomestay.netlify.app/",
     "telephone": "+916353402373",
+    "email": "premdhanhomestay@gmail.com",
     "hasMap": "https://maps.app.goo.gl/WPBSjbDhdyKUp9Nw6",
     "geo": {
       "@type": "GeoCoordinates",
@@ -1170,12 +1171,12 @@
                 <div>
                   <h4 class="contact-card-title">Email Address</h4>
                   <!-- EDIT: Email address -->
-                  <div class="contact-card-val" style="font-size: 1rem;">stay@premdhanhomestay.com</div>
+                  <div class="contact-card-val" style="font-size: 1rem;">premdhanhomestay@gmail.com</div>
                 </div>
               </div>
               <!-- EDIT: mailto link -->
               <a 
-                href="mailto:stay@premdhanhomestay.com?subject=Inquiry%20-%20Premdhan%20Homestay" 
+                href="mailto:premdhanhomestay@gmail.com?subject=Inquiry%20-%20Premdhan%20Homestay" 
                 class="btn btn-secondary"
               >
                 Send Email
@@ -1206,33 +1207,48 @@
                 <span class="field-error" id="guest-name-error" aria-live="polite"></span>
               </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="guest-phone" class="form-label">Phone number *</label>
-                  <input 
-                    type="tel" 
-                    id="guest-phone" 
-                    name="phone" 
-                    class="form-input" 
-                    required 
-                    placeholder="e.g. 9876543210"
-                    autocomplete="tel"
-                    aria-describedby="guest-phone-error"
-                  >
-                  <span class="field-error" id="guest-phone-error" aria-live="polite"></span>
-                </div>
-                <div class="form-group">
-                  <label for="room-choice" class="form-label">Room type *</label>
-                  <select id="room-choice" name="room" class="form-select" required aria-describedby="room-choice-error">
-                    <option value="" disabled selected>Select room type</option>
-                    <option value="Double Bed Room (103, 104)">Double Bed Room (103, 104)</option>
-                    <option value="Three Bed Room (101)">Three Bed Room (101)</option>
-                    <option value="Four Bed Room (102)">Four Bed Room (102)</option>
-                    <option value="Not sure">Not sure</option>
-                  </select>
-                  <span class="field-error" id="room-choice-error" aria-live="polite"></span>
-                </div>
+              <div class="form-group">
+                <label for="guest-phone" class="form-label">Phone number *</label>
+                <input 
+                  type="tel" 
+                  id="guest-phone" 
+                  name="phone" 
+                  class="form-input" 
+                  required 
+                  placeholder="e.g. 9876543210"
+                  autocomplete="tel"
+                  aria-describedby="guest-phone-error"
+                >
+                <span class="field-error" id="guest-phone-error" aria-live="polite"></span>
               </div>
+
+              <fieldset class="form-group room-selection-group" aria-describedby="room-selection-error room-live-summary">
+                <legend class="form-label">Which rooms would you like?</legend>
+                <div class="room-checkbox-grid">
+                  <label class="room-checkbox-label" for="room-101">
+                    <input type="checkbox" id="room-101" name="rooms" value="101" class="room-checkbox">
+                    <span class="room-checkbox-text">Room 101 - Three Bed Room</span>
+                  </label>
+                  <label class="room-checkbox-label" for="room-102">
+                    <input type="checkbox" id="room-102" name="rooms" value="102" class="room-checkbox">
+                    <span class="room-checkbox-text">Room 102 - Four Bed Room</span>
+                  </label>
+                  <label class="room-checkbox-label" for="room-103">
+                    <input type="checkbox" id="room-103" name="rooms" value="103" class="room-checkbox">
+                    <span class="room-checkbox-text">Room 103 - Double Bed Room</span>
+                  </label>
+                  <label class="room-checkbox-label" for="room-104">
+                    <input type="checkbox" id="room-104" name="rooms" value="104" class="room-checkbox">
+                    <span class="room-checkbox-text">Room 104 - Double Bed Room</span>
+                  </label>
+                  <label class="room-checkbox-label room-checkbox-label-full" for="room-not-sure">
+                    <input type="checkbox" id="room-not-sure" name="rooms" value="not-sure" class="room-checkbox">
+                    <span class="room-checkbox-text">Not sure, please suggest</span>
+                  </label>
+                </div>
+                <div id="room-live-summary" class="room-live-summary" aria-live="polite"></div>
+                <span class="field-error" id="room-selection-error" aria-live="polite"></span>
+              </fieldset>
 
               <div class="form-row form-row-dates">
                 <div class="form-group">

@@ -382,13 +382,87 @@ document.addEventListener("DOMContentLoaded", () => {
     const ownerAlert = document.getElementById("form-owner-alert");
     const nameInput = document.getElementById("guest-name");
     const phoneInput = document.getElementById("guest-phone");
-    const roomSelect = document.getElementById("room-choice");
+    const roomGroup = enquiryForm.querySelector(".room-selection-group");
+    const roomCheckboxes = Array.from(enquiryForm.querySelectorAll('.room-checkbox[name="rooms"]'));
+    const roomNotSure = document.getElementById("room-not-sure");
+    const specificRoomCheckboxes = roomCheckboxes.filter((cb) => cb !== roomNotSure);
+    const roomSummaryEl = document.getElementById("room-live-summary");
+    const roomErrorEl = document.getElementById("room-selection-error");
     const checkInInput = document.getElementById("check-in-date");
     const checkOutInput = document.getElementById("check-out-date");
     const guestsInput = document.getElementById("num-guests");
     const messageInput = document.getElementById("guest-message");
     const submitBtn = document.getElementById("enquiry-submit-btn");
     const confirmationEl = document.getElementById("form-confirmation");
+
+    const ROOM_NAMES = {
+      "101": "Room 101 (Three Bed)",
+      "102": "Room 102 (Four Bed)",
+      "103": "Room 103 (Double Bed)",
+      "104": "Room 104 (Double Bed)"
+    };
+
+    // Live room selection state and mutual exclusion
+    const updateRoomSelectionState = () => {
+      roomCheckboxes.forEach((cb) => {
+        const label = cb.closest(".room-checkbox-label");
+        if (label) {
+          label.classList.toggle("is-selected", cb.checked);
+        }
+      });
+
+      const checkedRooms = specificRoomCheckboxes
+        .filter((cb) => cb.checked)
+        .sort((a, b) => Number(a.value) - Number(b.value));
+
+      if (roomNotSure && roomNotSure.checked) {
+        if (roomSummaryEl) roomSummaryEl.textContent = "Not sure, please suggest";
+      } else if (checkedRooms.length > 0) {
+        const roomNumbers = checkedRooms.map((cb) => cb.value).join(", ");
+        if (roomSummaryEl) {
+          roomSummaryEl.textContent =
+            checkedRooms.length === 1
+              ? `1 room selected: ${roomNumbers}`
+              : `${checkedRooms.length} rooms selected: ${roomNumbers}`;
+        }
+      } else {
+        if (roomSummaryEl) roomSummaryEl.textContent = "";
+      }
+
+      const hasSelection = (roomNotSure && roomNotSure.checked) || checkedRooms.length > 0;
+      if (hasSelection) {
+        if (roomErrorEl) roomErrorEl.textContent = "";
+        if (roomGroup) roomGroup.classList.remove("is-invalid");
+      }
+    };
+
+    if (roomNotSure) {
+      roomNotSure.addEventListener("change", () => {
+        if (roomNotSure.checked) {
+          specificRoomCheckboxes.forEach((cb) => {
+            cb.checked = false;
+          });
+        }
+        updateRoomSelectionState();
+      });
+    }
+
+    specificRoomCheckboxes.forEach((cb) => {
+      cb.addEventListener("change", () => {
+        if (cb.checked && roomNotSure) {
+          roomNotSure.checked = false;
+        }
+        updateRoomSelectionState();
+      });
+    });
+
+    roomCheckboxes.forEach((cb) => {
+      const label = cb.closest(".room-checkbox-label");
+      if (label) {
+        cb.addEventListener("focus", () => label.classList.add("has-focus"));
+        cb.addEventListener("blur", () => label.classList.remove("has-focus"));
+      }
+    });
 
     // Show warning banner initially if WHATSAPP_NUMBER is still the placeholder
     if (isPlaceholder && ownerAlert) {
@@ -443,7 +517,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputFieldPairs = [
       { el: nameInput, errorId: "guest-name-error" },
       { el: phoneInput, errorId: "guest-phone-error" },
-      { el: roomSelect, errorId: "room-choice-error" },
       { el: checkInInput, errorId: "check-in-date-error" },
       { el: checkOutInput, errorId: "check-out-date-error" },
       { el: guestsInput, errorId: "num-guests-error" },
@@ -491,12 +564,32 @@ document.addEventListener("DOMContentLoaded", () => {
         setFieldError(phoneInput, "guest-phone-error", "");
       }
 
-      // 3. Room type validation
-      const roomVal = roomSelect ? roomSelect.value.trim() : "";
-      if (!roomVal) {
-        markInvalid(roomSelect, "room-choice-error", "Please select a room type.");
+      // 3. Room selection validation (at least one room or "Not sure")
+      const checkedRooms = specificRoomCheckboxes
+        .filter((cb) => cb.checked)
+        .sort((a, b) => Number(a.value) - Number(b.value));
+      const isNotSure = roomNotSure ? roomNotSure.checked : false;
+
+      let roomsVal = "";
+      if (isNotSure) {
+        roomsVal = "Not sure, please suggest";
+        if (roomErrorEl) roomErrorEl.textContent = "";
+        if (roomGroup) roomGroup.classList.remove("is-invalid");
+      } else if (checkedRooms.length > 0) {
+        roomsVal = checkedRooms.map((cb) => ROOM_NAMES[cb.value] || `Room ${cb.value}`).join(", ");
+        if (roomErrorEl) roomErrorEl.textContent = "";
+        if (roomGroup) roomGroup.classList.remove("is-invalid");
       } else {
-        setFieldError(roomSelect, "room-choice-error", "");
+        if (roomErrorEl) {
+          roomErrorEl.textContent = "Please choose at least one room, or tick Not sure.";
+        }
+        if (roomGroup) {
+          roomGroup.classList.add("is-invalid");
+        }
+        if (!firstInvalidEl && roomCheckboxes.length > 0) {
+          firstInvalidEl = roomCheckboxes[0];
+        }
+        hasError = true;
       }
 
       // 4. Check-in date validation
@@ -556,7 +649,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "",
         `Name: ${nameVal}`,
         `Phone: ${phoneVal}`,
-        `Room type: ${roomVal}`,
+        `Rooms: ${roomsVal}`,
         `Check-in: ${formatStayDate(checkInVal)}`,
         `Check-out: ${formatStayDate(checkOutVal)}`,
         `Guests: ${guestsVal}`
